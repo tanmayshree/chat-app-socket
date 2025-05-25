@@ -1,0 +1,318 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* src/App.css - Styles for the Chat Application */
+
+/* General Layout */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+    background-color: #f3f4f6; /* Consistent light gray background */
+}
+
+/* Login Screen Styles */
+.login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.login-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px; /* Max width for the login card */
+    text-align: center;
+}
+
+.login-card h2 {
+    font-size: 2rem; /* ~32px */
+    font-weight: 700; /* Bold */
+    color: #1f2937; /* Dark gray */
+    margin-bottom: 24px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Space between form elements */
+}
+
+.form-group {
+    text-align: left; /* Align label text to left */
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem; /* ~14px */
+    font-weight: 500; /* Medium */
+    color: #374151; /* Medium gray */
+    margin-bottom: 4px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* ~16px */
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #3b82f6; /* Blue border on focus */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25); /* Blue shadow on focus */
+}
+
+.login-button {
+    width: 100%;
+    background-color: #2563eb; /* Blue */
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600; /* Semi-bold */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.login-button:hover {
+    background-color: #1d4ed8; /* Darker blue on hover */
+}
+
+.login-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* Chat Header */
+.chat-header {
+    background-color: #2563eb; /* Blue */
+    color: #fff;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h1 {
+    font-size: 1.25rem; /* ~20px */
+    font-weight: 600; /* Semi-bold */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    font-weight: 500; /* Medium */
+}
+
+/* Chat Messages Area */
+.chat-messages {
+    flex: 1; /* Takes up remaining vertical space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 16px;
+    padding-bottom: 80px; /* Space for the fixed input area */
+    display: flex;
+    flex-direction: column; /* Stack messages vertically */
+    gap: 16px; /* Space between messages */
+}
+
+.message-row {
+    display: flex;
+}
+
+.message-row.sent {
+    justify-content: flex-end; /* Align sender's messages to the right */
+}
+
+.message-row.received {
+    justify-content: flex-start; /* Align receiver's messages to the left */
+}
+
+.message-bubble {
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    max-width: 80%; /* Max width for message bubbles */
+    word-wrap: break-word; /* Break long words */
+}
+
+.message-bubble.sent {
+    background-color: #3b82f6; /* Blue for sent messages */
+    color: #fff;
+    border-bottom-right-radius: 2px; /* Pointy corner for sent messages */
+}
+
+.message-bubble.received {
+    background-color: #fff;
+    color: #1f2937; /* Dark gray for received messages */
+    border-bottom-left-radius: 2px; /* Pointy corner for received messages */
+}
+
+.message-sender {
+    font-size: 0.875rem; /* ~14px */
+    font-weight: 600;
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+.message-text {
+    font-size: 1rem; /* ~16px */
+    line-height: 1.5;
+}
+
+.message-timestamp {
+    font-size: 0.75rem; /* ~12px */
+    margin-top: 4px;
+    text-align: right;
+}
+
+.message-bubble.sent .message-timestamp {
+    color: rgba(255, 255, 255, 0.7); /* Lighter color for sent timestamps */
+}
+
+.message-bubble.received .message-timestamp {
+    color: #6b7280; /* Gray color for received timestamps */
+}
+
+/* Message Input Area */
+.message-input-area {
+    background-color: #fff;
+    padding: 16px;
+    border-top: 1px solid #e5e7eb; /* Light gray border top */
+    position: fixed; /* Fix at the bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.message-form {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Space between input and button */
+    max-width: 900px; /* Max width for the input area */
+    margin: 0 auto; /* Center the input form */
+}
+
+.message-input {
+    flex: 1; /* Takes up available space */
+    padding: 12px 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 9999px; /* Fully rounded */
+    font-size: 1rem;
+}
+
+.message-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.send-button {
+    background-color: #2563eb;
+    color: #fff;
+    padding: 12px;
+    border-radius: 50%; /* Circular button */
+    display: flex; /* For centering the icon */
+    align-items: center;
+    justify-content: center;
+    width: 48px; /* Fixed width for circular button */
+    height: 48px; /* Fixed height for circular button */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.send-button:hover {
+    background-color: #1d4ed8;
+}
+
+.send-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .login-card {
+        padding: 30px 20px;
+        max-width: 95%;
+    }
+
+    .login-card h2 {
+        font-size: 2rem;
+    }
+
+    .chat-header {
+        padding: 12px;
+    }
+
+    .chat-header h1 {
+        font-size: 1.125rem; /* Smaller font for header on small screens */
+    }
+
+    .message-bubble {
+        max-width: 90%; /* Allow bubbles to take more width on small screens */
+    }
+
+    .message-input-area {
+        padding: 12px;
+    }
+
+    .message-form {
+        gap: 8px;
+    }
+
+    .message-input {
+        padding: 10px 16px;
+    }
+
+    .send-button {
+        padding: 10px;
+        width: 44px;
+        height: 44px;
+    }
+}
