@@ -9,7 +9,7 @@ import { Send, User, MessageSquare, Users } from 'lucide-react'; // Import icons
 import './App.css';
 
 // Define the backend server URL
-const SOCKET_SERVER_URL = 'http://localhost:3001';
+const SOCKET_SERVER_URL = 'https://chat-app-socket-2fxm.onrender.com/';
 
 // Main App component
 function App() {
